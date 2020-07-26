@@ -1,26 +1,57 @@
-import React from 'react';
+import React,{Component ,Fragment} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Customer from './components/Customer';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+const customers = [
+  {
+  'id': 1,
+  'image': 'https://placeimg.com/64/64/1',
+  'name' : '홍길동1',
+  'birthday' : '7/3',
+  'gender' : '여',
+  'job' : '군인'
+},
+{
+  'id': 2,
+  'image': 'https://placeimg.com/64/64/2',
+  'name' : '홍길동2',
+  'birthday' : '7/3',
+  'gender' : '여',
+  'job' : '군인'
+},
+{
+  'id': 3,
+  'image': 'https://placeimg.com/64/64/3',
+  'name' : '홍길동3',
+  'birthday' : '7/3',
+  'gender' : '여',
+  'job' : '군인'
+}
+]
+
+class App extends Component {
+  render() {
+    return (
+      <div>
+        {
+          customers.map(c=> {
+            return (
+              <Customer
+                key={c.id}
+                image={c.image}
+                name={c.name}
+                birthday={c.birthday}
+                gender={c.gender}
+                job={c.job}
+              />
+            );
+        })
+      }
+        
     </div>
-  );
+    );
+  }
 }
 
 export default App;
